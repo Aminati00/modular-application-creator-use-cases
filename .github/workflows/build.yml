@@ -1,0 +1,30 @@
+name: Build
+
+# Auslöser der Pipeline
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Verwende den neuesten Ubuntu Runner
+
+    steps:
+      # 1. Check-out des Codes
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # 2. Setup Node.js Umgebung
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # Node.js-Version anpassen
+
+      # 3. Installiere Abhängigkeiten
+      - name: Install dependencies
+        run: npm install
+
+      # 4. Projekt bauen
+      - name: Build the project
+        run: npm run build
