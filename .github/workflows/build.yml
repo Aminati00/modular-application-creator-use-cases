@@ -17,7 +17,7 @@ jobs:
 
       # 2. Restore NuGet-Pakete (Abhängigkeiten)
       - name: Restore NuGet packages
-        run: dotnet restore
+        run: dotnet restore --source https://captain.rtf.siemens.net/artifactory/api/nuget/v3/nuget-remote
 
       # 3. Bauen des .NET-Projekts
       - name: Build the .NET project
