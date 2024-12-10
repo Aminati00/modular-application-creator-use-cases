@@ -14,21 +14,11 @@ jobs:
       # 1. Check-out des Codes
       - name: Check out repository
         uses: actions/checkout@v3
-        
-      # 2. Set up .NET SDK
-      - name: Set up .NET SDK
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '4.8'
 
-      # 3. Restore NuGet-Pakete (Abhängigkeiten)
+      # 2. Restore NuGet-Pakete (Abhängigkeiten)
       - name: Restore NuGet packages
         run: dotnet restore
-        
-      # 3. Installiere Abhängigkeiten
-      - name: Install dependencies
-        run: npm install
 
-      # 4. Projekt bauen
-      - name: Build the project
-        run: npm run build
+      # 3. Bauen des .NET-Projekts
+      - name: Build the .NET project
+        run: dotnet build
